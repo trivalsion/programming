@@ -1,0 +1,7 @@
+{
+	"files.associations": {
+		"Makefile.inc": "makefile",
+		"parser.h": "c",
+		"main.h": "c"
+	}
+}
