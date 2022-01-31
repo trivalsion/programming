@@ -44,5 +44,5 @@ To change make configuration, read the build system section in [documentation](d
 `<Message from the --help flag of the program>`
 
 
-## Copyright
-`<Copyright notices if there was any code taken from other people>`
+## Credits
+`<Copyright notices to credit people if there was any code taken from other people>`
