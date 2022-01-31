@@ -53,8 +53,8 @@ Options:
 
 
 
-## Copyright
-* Credits for the CHIP-8 emulator
+## Credits
+* Credits for the CHIP-8 emulator located in `./arch/chip8/chip8emu`
 	* [Copyright (c) 2020 David Matlack](https://github.com/dmatlack/chip8)
 		* [Chip8 emulator](arch/chip8/chip8emu)
 		* [Test program(not a complete copy, but a rewrite)](test/test-program.s)

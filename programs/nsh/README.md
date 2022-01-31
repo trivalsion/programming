@@ -48,6 +48,3 @@ To change make configuration, read the build system section in [documentation](d
 
 
 ## Usage
-
-
-## Copyright
