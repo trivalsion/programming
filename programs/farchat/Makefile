@@ -3,6 +3,9 @@
 run:
 	python core/farchat.py
 
+clean:
+	rm config.json
+
 # Make config
 .DEFAULT_GOAL = run
-.PHONY: run
+.PHONY: run clean

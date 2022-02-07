@@ -11,8 +11,6 @@ def parse_cli_arguments():
 
 	parsed_arguments = parser.parse_args()
 
-	print(parsed_arguments.config)
-
 parse_cli_arguments()
 global_settings_data = config_parser.global_settings()
 global_settings_data.get_json_global_config()

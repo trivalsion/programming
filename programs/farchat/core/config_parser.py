@@ -9,22 +9,18 @@ import os
 
 class global_settings:
 	config_file = "./config.json" # later replace it with "{config_directory}/.config/farchat/config.dat"
-	default_global_config_json_data = """
-	{
-		"first_time_startup" : true,
+	default_global_config_json_data = {
+		"first_time_startup" : True,
 
 		"users" : [
 			{
-				"username" : null,
-				"real_name" : null,
-				"email" : null,
-				"user_description" : null
+				"username" : None,
+				"real_name" : None,
+				"email" : None,
+				"user_description" : None,
 			}
 		]
-
-
 	}
-	"""
 
 	def __init__(self):
 		pass
@@ -33,10 +29,9 @@ class global_settings:
 	def create_json_global_config(cls, global_config_file_path):
 		global_config_file = open(global_config_file_path, "w")
 
-		global_config_file.dump(cls.default_global_config_json_data, global_config_file)
+		json.dump(cls.default_global_config_json_data, global_config_file) # dump the default configuration into the config file
 
 		global_config_file.close()
-
 		return
 
 	def get_json_global_config(self, global_config_file_path=config_file):
@@ -47,7 +42,5 @@ class global_settings:
 		global_config_file = open(global_config_file_path, "r")
 
 		data = json.load(global_config_file) # load the config file
-		print(data)
-
 
 		global_config_file.close()
