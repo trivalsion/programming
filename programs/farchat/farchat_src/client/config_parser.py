@@ -7,7 +7,7 @@ import os
 # config_directory = pathlib.Path.home()
 
 
-class global_settings:
+class global_configuration:
 	config_file = "./config.json" # later replace it with "{config_directory}/.config/farchat/config.dat"
 	default_global_config_json_data = {
 		"first_time_startup" : True,
