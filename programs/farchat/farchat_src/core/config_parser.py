@@ -25,6 +25,8 @@ class global_configuration:
 	def __init__(self):
 		pass
 
+	# @brief : creates the json config file and fills it with default contents
+	# @param global_config_file_path : the path where the config file should be created
 	@classmethod
 	def create_json_global_config(cls, global_config_file_path):
 		global_config_file = open(global_config_file_path, "w")
@@ -34,6 +36,8 @@ class global_configuration:
 		global_config_file.close()
 		return
 
+	# @brief : reads contents from the config file, if the file does not exist it will create it and fill with default config
+	# @param global_config_file_path : the path where the config file should be created, by default a default path is used
 	def get_json_global_config(self, global_config_file_path=config_file):
 		if os.path.isfile(global_config_file_path) == False: # if the configuration file does not exist
 			self.create_json_global_config(global_config_file_path)
