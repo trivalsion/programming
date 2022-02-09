@@ -7,7 +7,7 @@ DEBUG = OFF# change to ON to turn on debugging mode
 ADDITIONAL_CLI_ARGUMENTS =
 
 ifeq ($(DEBUG), ON)
-ADDITIONAL_CLI_ARGUMENTS += --debug 1
+ADDITIONAL_CLI_ARGUMENTS += --debug
 endif
 
 
