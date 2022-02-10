@@ -2,7 +2,7 @@
 
 
 import argparse
-import farchat_src.core.utility as utility
+import farchat_src.core.common as common
 import farchat_src.client.farchat_client as fcc
 from .core.config_parser import global_configuration
 
@@ -20,7 +20,7 @@ def parse_cli_arguments():
 	parsed_arguments = parser.parse_args()
 
 	if parsed_arguments.debug == "1":
-		utility.debug_mode = True
+		common.debug_mode = True
 	elif parsed_arguments.server == "1":
 		global server_mode
 		server_mode = True
