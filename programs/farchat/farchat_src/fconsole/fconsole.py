@@ -9,7 +9,7 @@ FUNCTION_RETURN_STATUS_QUIT = -2
 
 
 # Represents an instabce if fconsole
-class ConsoleInstance:
+class FConsoleInstance:
 	# @brief : receives the vaules required for class initialization
 	# @param command_name_to_function_dict : a dictionary where command-named name strings correspond to functions themselves(function "pointers") declared in "def function(command_name, argument_list)" format and which return a tuple of (<function_return_status>, <function_return_data>) where <function_return_status> is the a number representing how the command ended with FUNC_RETURN_STATUS_* defines used at the place of <function_return_status> in the tuple; <function_return_data> in the tuple is any data that the function wants to return(e.g. display : dispaly_func)
 	def __init__(self, command_name_to_function_dict):
