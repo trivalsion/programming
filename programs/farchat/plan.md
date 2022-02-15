@@ -1,6 +1,7 @@
 # To Do
-* Add comments to all functions
-* Implement some unit tests, testing framework or CI/CD
+* Implement the fconsole and integrate it into the client
+* Implement P2P client networking part
+* Implement some unit tests, testing framework
 
 
 
