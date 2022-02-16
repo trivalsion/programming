@@ -1,17 +1,29 @@
-# The main file for fconsole which would be imported into other files as a module
+# Main FConsole code file, it is the only fconsole module(py) file that should be included into modules beyond this folder(package)
 
 
 import farchat_src.core.common as common
+import farchat_src.fconsole.common_fconsole_commands as fc_funcs
+
 
 FUNCTION_RETURN_STATUS_SUCCESS = 0
 FUNCTION_RETURN_STATUS_FAIL = -1
 FUNCTION_RETURN_STATUS_QUIT = -2
 
 
-# Represents an instabce if fconsole
+# @brief : returns the dictionary of strings to functions containing the default commands common for both fconsole client and server
+# @return : dict of command-named strings to corresponding functions
+def get_common_fc_commands():
+	return fc_funcs.command_name_to_function_dict
+
+
+# Represents an instance of fconsole
 class FConsoleInstance:
 	# @brief : receives the vaules required for class initialization
-	# @param command_name_to_function_dict : a dictionary where command-named name strings correspond to functions themselves(function "pointers") declared in "def function(command_name, argument_list)" format and which return a tuple of (<function_return_status>, <function_return_data>) where <function_return_status> is the a number representing how the command ended with FUNC_RETURN_STATUS_* defines used at the place of <function_return_status> in the tuple; <function_return_data> in the tuple is any data that the function wants to return(e.g. display : dispaly_func)
+	# @param command_name_to_function_dict : a dictionary where command-named strings correspond to functions that execute the command(function "pointers"):
+		# Declared in "def function(command_name, argument_list)" format
+		# Return a tuple of (<function_return_status>, <function_return_data>)(e.g. "display" : dispaly_func)
+			# <function_return_status>  - number representing how the command ended, FUNC_RETURN_STATUS_* defines should be used here instead of manually writing numbers
+			# <function_return_data> - any data that the function wants to return
 	def __init__(self, command_name_to_function_dict):
 		self.command_name_to_function_dict = command_name_to_function_dict
 
