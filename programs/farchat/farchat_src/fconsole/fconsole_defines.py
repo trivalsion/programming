@@ -1,0 +1,6 @@
+# Includes defines common for multiple fconsole files
+
+
+FUNCTION_RETURN_STATUS_SUCCESS = 0
+FUNCTION_RETURN_STATUS_FAIL = -1
+FUNCTION_RETURN_STATUS_QUIT = -2

@@ -30,6 +30,15 @@ log_file_path = "./farchat.log" # add a default path for log file
 log_file_fd = None
 
 
+# @brief : prints a string to the terminal, but adds the ability to select it's fore and back ground colors, colors will be reset immidiatly after the string is printed
+# @param string : the string that should be printed
+# @param fg_color : ANSI sequence for setting the needed foreground color, to leave the default color supply "" on the place of this argument
+# @param bg_color : ANSI sequence for setting the needed background color, to leave the default color supply "" on the place of this argument
+# @param fd : where the string will be outputted, by default it will be set to stdout, but any valid file descriptor could be supplied here
+# @return : returns what the print() function returns
+def color_print(string, fg_color, bg_color, fd=sys.stdout):
+	return print(fg_color + bg_color + string + ANSI_COLOR_RESET, file=fd) # first go the ANSI sequences which tell the terminal to set fore and background colors, then goes the string, after string there goes ANSI reser sequence so the fore and background colors are reset after the string is printed; print's file argument specifies the file descriptor to which the string should be printed
+
 # @brief : cleanly exists from the program
 # @param exit_status : tells wether the program should return successfull or unsucessfull exit
 def clean_exit(exit_status):
@@ -42,28 +51,20 @@ def clean_exit(exit_status):
 # @param string : the debug message that should be displayed
 def output_debug(string):
 	if debug_mode == True:
-		print(ANSI_COLOR_FOREGROUND_BLUE) # set the font color to be blue
-		print("Debug Info: " + string)
-		print(ANSI_COLOR_RESET) # reset the color of the text
+		color_print("Debug Info: " + string, ANSI_COLOR_FOREGROUND_BLUE, "")
 
 # @brief : outputs error messages and can do extra steps depending on the error type
 # @param error_string : the string which should be outputted in the case of an error
 # @param error_type : a number indicating error type, use ERROR_TYPE_* constants for that
 def output_error(error_string, error_type):
 	if error_type == ERROR_TYPE_NORMAL:
-		print(ANSI_COLOR_FOREGROUND_RED)
-		print(f"Error: {error_string}", file=sys.stderr) # write the error output to stderr
-		print(ANSI_COLOR_RESET)
+		color_print(f"Error: {error_string}", ANSI_COLOR_FOREGROUND_RED, "", fd=sys.stderr)
 		return
 	if error_type == ERROR_TYPE_WARNING:
-		print(ANSI_COLOR_FOREGROUND_MAGENTA)
-		print(f"Warning: {error_string}", file=sys.stderr)
-		print(ANSI_COLOR_RESET)
+		color_print(f"Warning: {error_string}", ANSI_COLOR_FOREGROUND_MAGENTA, "", fd=sys.stderr)
 		return
 	if error_type == ERROR_TYPE_FATAL:
-		print(ANSI_COLOR_FOREGROUND_RED)
-		print(f"Fatal: {error_string}", file=sys.stderr)
-		print(ANSI_COLOR_RESET)
+		color_print(f"Fatal: {error_string}", ANSI_COLOR_FOREGROUND_RED, "", fd=sys.stderr)
 		clean_exit() # exit in case of a fatal error
 
 # @brief : outputs a log string

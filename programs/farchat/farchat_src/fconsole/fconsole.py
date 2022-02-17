@@ -3,16 +3,12 @@
 
 import farchat_src.core.common as common
 import farchat_src.fconsole.common_fconsole_commands as fc_funcs
-
-
-FUNCTION_RETURN_STATUS_SUCCESS = 0
-FUNCTION_RETURN_STATUS_FAIL = -1
-FUNCTION_RETURN_STATUS_QUIT = -2
+import farchat_src.fconsole.fconsole_defines as fc_defines
 
 
 # @brief : returns the dictionary of strings to functions containing the default commands common for both fconsole client and server
 # @return : dict of command-named strings to corresponding functions
-def get_common_fc_commands():
+def get_common_fconsole_commands():
 	return fc_funcs.command_name_to_function_dict
 
 
@@ -35,12 +31,14 @@ class FConsoleInstance:
 			if self.execute_input() == -1:
 				common.output_error(f"Command not found - {self.input_command_name}", common.ERROR_TYPE_NORMAL)
 			elif type(self.command_return_tuple) is tuple:
-				if self.command_return_tuple[0] == FUNCTION_RETURN_STATUS_QUIT:
+				if self.command_return_tuple[0] == fc_defines.FUNCTION_RETURN_STATUS_QUIT:
 					return 0 # quit successfully if function returned quit status
+			else:
+				common.output_error("Function's return value is in an inappropriate object as it should be a tuple", common.ERROR_TYPE_NORMAL)
 
 	# @brief : gets the input string from the user and interprets it
 	def get_input(self):
-		user_input = input("farchat > ")
+		user_input = input("[fconsole] ")
 		tokenized_user_input = user_input.split(" ") # split the string into a list by spaces
 
 		self.input_command_name = tokenized_user_input[0]
