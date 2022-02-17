@@ -18,7 +18,7 @@
 - [Arduino Official Tutorials](https://www.arduino.cc/en/Tutorial/HomePage)
 - [Using arduino without an IDE](https://wiki.freebsd.org/Arduino)
 - [Arduino thread on embedded reddit](https://www.reddit.com/r/embedded/comments/mpdk5z/another_can_i_start_learning_embedded_with_an/?utm_medium=android_app&utm_source=share)
-- [Bare metal Arduino programming](https://www.google.com/amp/s/www.instructables.com/AVR-Programming-with-Arduino-AVRdude-and-AVR-gcc/%3famp_page=true)
+- [Bare metal Arduino programming](https://www.instructables.com/AVR-Programming-with-Arduino-AVRdude-and-AVR-gcc/)
 
 
 
