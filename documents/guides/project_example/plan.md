@@ -1,10 +1,6 @@
 # To Do
 
-
-# Features
-## Not Implemented
-
-## Implemented
+## Finished ToDos
 
 
 # Software Architecture
