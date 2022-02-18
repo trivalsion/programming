@@ -27,10 +27,10 @@ FARCHAT_SERVER_P2P_PORT = 65524
 
 
 debug_mode = False
-main_data_folder_path = "." # the path of the folder which would store the logs and configs subfolders
+main_data_folder_path = "./farchat" # the path of the folder which would store the logs and configs subfolders !!!!! CHANGE THIS PATH TO "$HOME/.config/farchat" on linux and "Users/<user>/farchat" on windows
 
-main_log_folder_path = os.path.join(main_data_folder_path, "log") # the path of the folder in which all log related files and folders should be stored
-main_config_folder_path = os.path.join(main_data_folder_path, "config") # the path of the folder in which all config related files and folders should be stored
+main_log_folder_path = "" # the path of the folder in which all log related files and folders should be stored
+main_config_folder_path = "" # the path of the folder in which all config related files and folders should be stored
 
 main_log_file_path = os.path.join(main_log_folder_path, "farchat.log")
 main_log_file_fd = None
@@ -96,3 +96,39 @@ def output_log(string, log_type, log_location):
 			main_log_file_fd.write(output_string)
 
 	return 0
+
+# @brief : creates all of the config folder and files whos paths this module provides in global variables
+def create_data_paths():
+	if os.path.exists(main_data_folder_path) == True:
+		if os.path.isdir(main_data_folder_path) == True:
+			if os.path.exists(main_config_folder_path) == True:
+				if os.path.isdir(main_config_folder_path) == True:
+					pass
+				else:
+					output_error("The chosen config path is a file and farchat requires choosing a folder or an unexistant path", ERROR_TYPE_FATAL)
+			else:
+				os.mkdir(main_config_folder_path)
+
+			if os.path.exists(main_log_folder_path) == True:
+				if os.path.isdir(main_log_folder_path) == True:
+					pass
+				else:
+					output_error("The chosen log path is a file and farchat requires choosing a folder or an unexistant path", ERROR_TYPE_FATAL)
+			else:
+				os.mkdir(main_log_folder_path)
+		else:
+			output_error("The chosen data path is a file and farchat requires choosing a folder or an unexistant path", ERROR_TYPE_FATAL)
+	else:
+		os.makedirs(main_data_folder_path)
+		os.mkdir(main_config_folder_path)
+		os.mkdir(main_log_folder_path)
+
+	return
+
+# @brief : this function sets several global variable's values with file and directory paths, the vars are not set directly(during variable creation) because they depend on a main_data_folder_path variable that could be updated and they would need to be updated with it, so instead first runs the function that could update the main_data_folder_path and then runs this functions which assigns all variables dependant on it, so in case main_data_folder_path was changed, all of these vars use it's new value
+def set_data_paths():
+	global main_log_folder_path
+	global main_config_folder_path
+
+	main_log_folder_path = os.path.join(main_data_folder_path, "log")
+	main_config_folder_path = os.path.join(main_data_folder_path, "config")

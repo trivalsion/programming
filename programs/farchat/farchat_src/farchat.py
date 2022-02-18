@@ -13,7 +13,7 @@ server_mode = False # by default farchat works in client mode
 def parse_cli_arguments():
 	parser = argparse.ArgumentParser()
 
-	parser.add_argument("-c", "--config", help="choose a config file location from which the program should read settings instead of using the default config file")
+	parser.add_argument("--config", help="choose a config and log folder location that program should use instead of the default one")
 	parser.add_argument("--debug", default = "1", help="run the program in debug mode")
 	parser.add_argument("--server", default = "1", help="starts farchat in server mode")
 
@@ -21,13 +21,19 @@ def parse_cli_arguments():
 
 	if parsed_arguments.debug == "1":
 		common.debug_mode = True
-	elif parsed_arguments.server == "1":
+	if parsed_arguments.server == "1":
 		global server_mode
 		server_mode = True
+	if parsed_arguments.config:
+		common.main_data_folder_path = parsed_arguments.config
 	return
 
 def start_farchat():
 	parse_cli_arguments()
+
+	common.set_data_paths()
+	common.create_data_paths()
+
 	global_config_data = global_configuration()
 	global_config_data.get_json_global_config()
 
