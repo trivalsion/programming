@@ -16,7 +16,7 @@ run:
 	@python -m farchat_src $(ADDITIONAL_CLI_ARGUMENTS)
 
 clean:
-	rm config.json
+	rm -rf log config *.log *.json
 
 
 ## Make config
