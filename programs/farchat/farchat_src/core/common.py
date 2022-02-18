@@ -3,6 +3,7 @@
 
 import sys
 import datetime
+import os
 
 
 ANSI_ESCAPE = "\033["
@@ -26,8 +27,13 @@ FARCHAT_SERVER_P2P_PORT = 65524
 
 
 debug_mode = False
-log_file_path = "./farchat.log" # add a default path for log file
-log_file_fd = None
+main_data_folder_path = "." # the path of the folder which would store the logs and configs subfolders
+
+main_log_folder_path = os.path.join(main_data_folder_path, "log") # the path of the folder in which all log related files and folders should be stored
+main_config_folder_path = os.path.join(main_data_folder_path, "config") # the path of the folder in which all config related files and folders should be stored
+
+main_log_file_path = os.path.join(main_log_folder_path, "farchat.log")
+main_log_file_fd = None
 
 
 # @brief : prints a string to the terminal, but adds the ability to select it's fore and back ground colors, colors will be reset immidiatly after the string is printed
@@ -42,8 +48,8 @@ def color_print(string, fg_color, bg_color, fd=sys.stdout):
 # @brief : cleanly exists from the program
 # @param exit_status : tells wether the program should return successfull or unsucessfull exit
 def clean_exit(exit_status):
-	if log_file_fd != None: # close the log file before exiting
-		log_file_fd.close()
+	if main_log_file_fd != None: # close the log file before exiting
+		main_log_file_fd.close()
 
 	sys.exit(exit_status) # close the program returning succesfull exit
 
@@ -73,7 +79,7 @@ def output_error(error_string, error_type):
 # @param log_location : where the log should be outputted to, use LOG_LOCATION_* constants here
 # @return : 0 on success, -1 on fail
 def output_log(string, log_type, log_location):
-	global log_file_fd # use the global keyword so the global log_file_fd variable is used instead of local
+	global main_log_file_fd # use the global keyword so the global main_log_file_fd variable is used instead of local
 	output_string = None
 	now = datetime.datetime.now()
 
@@ -83,10 +89,10 @@ def output_log(string, log_type, log_location):
 	if log_location == LOG_LOCATION_STDOUT:
 		print(output_string)
 	elif log_location == LOG_LOCATION_FILE:
-		if log_file_fd != None: # if the log file is open, write to it
-			log_file_fd.write(output_string)
+		if main_log_file_fd != None: # if the log file is open, write to it
+			main_log_file_fd.write(output_string)
 		else: # else open the log file
-			log_file_fd = open(log_file_path, "w")
-			log_file_fd.write(output_string)
+			main_log_file_fd = open(main_log_file_path, "w")
+			main_log_file_fd.write(output_string)
 
 	return 0

@@ -3,12 +3,11 @@
 import json
 import pathlib
 import os
-
-# config_directory = pathlib.Path.home()
+import farchat_src.core.common as common
 
 
 class global_configuration:
-	config_file = "./config.json" # later replace it with "{config_directory}/.config/farchat/config.dat"
+	config_file = os.path.join(common.main_config_folder_path, "config.json")
 	default_global_config_json_data = {
 		"first_time_startup" : True,
 
