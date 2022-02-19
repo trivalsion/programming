@@ -1,9 +1,14 @@
 # To Do
-* Implement the fconsole and integrate it into the client
-* Implement P2P client networking part
+* Implement standard fconsole command's functions
+	* `Display` - there should be a json file(fconsole_display.json) in a specific format in the config directory from where the display could read what it can display. When `display` is invoked, it should be supplied with a CLI argument telling it what category it should display, `display` should check the json file for such category and if it is available then look what kind of info is in there(list, dict...) and output it in a formatted way
+	* `List` - similar to display, but instead it should list stuff from global variables and config files of other parts of the program(e.g. contacts.txt)
+	* `Sent`
+* Implement fconsole command's specific to the P2P client like `connect <client>` the fconsole client should add these commands to the existing dictionary with default commands that would then be passed to fconsole instance and not create a new dict for them(because then the default commands would not be available)
+* Implement P2P client networking part and test it with 2 P2P clients(seperate devices) finding each other on the network and then communicating
 * Implement unit tests
 
 ## Finished ToDos
+* Change all code to use only one config directory that could be set through CLI args or the default value could be used instead
 
 
 
@@ -36,6 +41,7 @@
 	* Have one common module(.py) which would start both the server and client. It should start client by default and server if the `--server` argument is passed to it
 	* Folders for client and server code should be seperate and modules common between them should be seperated into folders of their own
 	* The messages for each client should be stored in a seperate file and should have a standard format and a \r\n after every message
+	* All extra files(logs and configs) should be stored in one folder that could be chosen with `--config` argument, create subfolders for logs and configs in this main folder
 * Extended functionality
 	* Embedd a custom management system into farchat server where all of the data sent through configured farchat server could be automatically added to a central management system database on the server
 
