@@ -33,7 +33,10 @@ main_log_folder_path = "" # the path of the folder in which all log related file
 main_config_folder_path = "" # the path of the folder in which all config related files and folders should be stored
 
 main_log_file_path = os.path.join(main_log_folder_path, "farchat.log")
-main_log_file_fd = None
+
+opened_file_descriptors_dict = {} # place all of the open file descriptors in this dict in form of "fd_var_name" : fd_var. This is needed so when exiting all open file descriptors could be easily closed. If a file descriptor is closed before exit, make sure to change the value corresponding to variable's string/key with "None" type
+
+opened_file_descriptors_dict["main_log_file"] = None
 
 
 # @brief : prints a string to the terminal, but adds the ability to select it's fore and back ground colors, colors will be reset immidiatly after the string is printed
@@ -48,8 +51,9 @@ def color_print(string, fg_color, bg_color, fd=sys.stdout):
 # @brief : cleanly exists from the program
 # @param exit_status : tells wether the program should return successfull or unsucessfull exit
 def clean_exit(exit_status):
-	if main_log_file_fd != None: # close the log file before exiting
-		main_log_file_fd.close()
+	for key in opened_file_descriptors_dict: # close opened files
+		if opened_file_descriptors_dict[key] != None:
+			opened_file_descriptors_dict[key].close()
 
 	sys.exit(exit_status) # close the program returning succesfull exit
 
@@ -79,7 +83,6 @@ def output_error(error_string, error_type):
 # @param log_location : where the log should be outputted to, use LOG_LOCATION_* constants here
 # @return : 0 on success, -1 on fail
 def output_log(string, log_type, log_location):
-	global main_log_file_fd # use the global keyword so the global main_log_file_fd variable is used instead of local
 	output_string = None
 	now = datetime.datetime.now()
 
@@ -89,11 +92,11 @@ def output_log(string, log_type, log_location):
 	if log_location == LOG_LOCATION_STDOUT:
 		print(output_string)
 	elif log_location == LOG_LOCATION_FILE:
-		if main_log_file_fd != None: # if the log file is open, write to it
-			main_log_file_fd.write(output_string)
+		if opened_file_descriptors_dict["main_log_file"] != None: # if the log file is open, write to it
+			opened_file_descriptors_dict["main_log_file"].write(output_string)
 		else: # else open the log file
-			main_log_file_fd = open(main_log_file_path, "w")
-			main_log_file_fd.write(output_string)
+			opened_file_descriptors_dict["main_log_file"] = open(main_log_file_path, "w")
+			opened_file_descriptors_dict["main_log_file"].write(output_string)
 
 	return 0
 
