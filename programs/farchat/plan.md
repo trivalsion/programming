@@ -52,3 +52,8 @@
 	* [Argparse HOWTO](https://docs.python.org/3/howto/argparse.html)
 * [JSON Libraray Documentation](https://docs.python.org/3/library/json.html)
 	* [RealPython JSON Tutorial](https://realpython.com/python-json/)
+* [RealPython Threading Tutorial](https://realpython.com/intro-to-python-threading/)
+* [Official Python Sockets Documentation](https://docs.python.org/3/library/socket.html)
+	* [RealPython Sockets Tutorial](https://realpython.com/python-sockets/)
+	* [Official Python Sockets Guide](https://docs.python.org/3/howto/sockets.html)
+	* [SocketServer - built-in framework for simplyfying the writing of servers](https://docs.python.org/3/library/socketserver.html#module-socketserver)
