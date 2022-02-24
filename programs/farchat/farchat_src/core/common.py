@@ -33,6 +33,7 @@ main_log_folder_path = "" # the path of the folder in which all log related file
 main_config_folder_path = "" # the path of the folder in which all config related files and folders should be stored
 
 main_log_file_path = os.path.join(main_log_folder_path, "farchat.log")
+fconsole_display_config_file_path = os.path.join(main_config_folder_path, "fc_display.json")
 
 opened_file_descriptors_dict = {} # place all of the open file descriptors in this dict in form of "fd_var_name" : fd_var. This is needed so when exiting all open file descriptors could be easily closed. If a file descriptor is closed before exit, make sure to change the value corresponding to variable's string/key with "None" type
 
