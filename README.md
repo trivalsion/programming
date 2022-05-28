@@ -1,10 +1,10 @@
 # Programming
-Programming Projects and Notes
+Computer Science and Programming Projects and Notes
 
 
 
 
-# Project ideas
+# Programming project ideas
 * ***Bold + Italic Text*** - Best Project Ideas
 * `(Language: Language)` - Best/Recommended language to do the project in
 ## Networking
