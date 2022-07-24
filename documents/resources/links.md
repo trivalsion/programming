@@ -5,6 +5,7 @@
 * [MIT OpenCoursware](https://ocw.mit.edu/)
 * [Papers We Love - GitHub collection of core scientific papers on different subjects](https://github.com/papers-we-love/)
 	* [Papers on topic of computer science](https://github.com/papers-we-love/papers-we-love/)
+* [Coding Interview University - complete Computer Science study plan similar to a degree](https://github.com/jwasham/coding-interview-university)
 
 
 

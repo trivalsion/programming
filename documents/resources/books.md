@@ -1,13 +1,36 @@
 * Ed. - Edition
-# Best Books
-## Computer Science(CS) and Programming Theory
-* `The Art of Computer Programming` - Donald Knuth
-* `Introduction to Algorithms` - CLRS
+# Computer Science(CS) and Programming Theory
+* `The Art of Computer Programming (Vol. 1-4)` - Donald Knuth
 * `Concrete Mathematics` - Donald Knuth
+* `The Practice of Programming` - Brian Kernighan
+* `Structure and Interpretation of Computer Programms (Ed. 2)` - Gerald Jay Sussman
+
+
+
+# Problem Solving and Algorithms
+* `Introduction to Algorithms (Ed. 4)` - C, L, R, S
+* `Thinck Like a Programmer: An Introduction to Creative Problem Solving` - V. Anton Spraul
+* `The Pragmatic Programmer: Your Journey to Mastery (20th Anniversary Edition)` - Andy Hunt
+
+
+
+# Coding and Design Patterns
+* `Design Patterns: Elements of Reusable Object-Oriented Software` - Erich Gamma
+* `Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable and Maintainable Systems` - Martin Kleppmann
 * `Clean Code: A Handbook of Agile Software Craftsmanship` - Robert Cecil Martin
-* `Linkers and Loaders` - John R. Levine
+* `Clean Coder: A Code of Conduct for Professional Programmers` - Robert Cecil Martin
 
 
+
+# Computer Architecture/Organization
+* `Computer Systems: A Programmer's perspective (Ed. 3)` - Randal E. Bryant
+* `Operating Systems Design and Implementation (Ed. 3)` - Andrew Tanenbaum
+* `Structured Computer Organization (Ed. 6)` - Andrew Tanenbaum
+* `Upgrading and repairing PCs (Ed. 22)` - Scott Mueller
+
+
+
+# Programming Languages
 ## C/C++
 ### Best
 * `The C Programming Language (Ed. 2)` - Dennis Ritchie, Brian W. Kernighan
@@ -39,23 +62,24 @@
 * [`Learning with Python` - Allen Downey(Free)](https://greenteapress.com/wp/learning-with-python/)
 
 
-## Unix
+
+# Unix
 * [`The Linux Command Line: A Complete Introduction (Ed. 2)` - William Shotts (Free)](https://linuxcommand.org/tlcl.php)
 * `UNIX and Linux System Administration Handbook (Ed. 5)` - Evi Nemeth, Ben Whaley
 * `Linux in a Nutshell (Ed. 6)` - Robert Love, Ellen Siever
 * [`Linux From Scratch` - Gerard Beekmans (Free)](https://www.linuxfromscratch.org/)
 
 
-## Computer Architecture/Organization
-* `Computer Systems: A Programmer's perspective (Ed. 3)` - Randal E. Bryant
-* `Operating Systems Design and Implementation (Ed. 3)` - Andrew Tanenbaum
-* `Structured Computer Organization (Ed. 6)` - Andrew Tanenbaum
-* `Upgrading and repairing PCs (Ed. 22)` - Scott Mueller
 
-
-## Embedded/EE
+# Embedded/EE
 * `Practical Electronics for Inventors (Ed. 4)` - Paul Scherz, Simon Monk
 * `The Art of Electronics (Ed. 3)` - Paul Horowitz
+
+
+
+# Misc
+* `Linkers and Loaders` - John R. Levine
+* `Test-Driven Development by Example` - Kent Beck
 
 
 
