@@ -22,11 +22,9 @@
 
 
 
-# Normal Resources
-* [Khan Academy](https://www.khanacademy.org/)
-
-
-
 # Misc
+* [Khan Academy](https://www.khanacademy.org/)
 * [Computer Science Roadmap](https://github.com/yngz/cs-roadmap/)
 * [FreeCodeCamp](https://www.freecodecamp.org/)
+* [MIT OpenCoursware](https://ocw.mit.edu/)
+* [Hackaday](https://hackaday.com/)
